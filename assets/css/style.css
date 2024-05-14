@@ -1,3 +1,4 @@
+/* Base Styles */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -11,24 +12,55 @@ body {
     padding: 20px;
 }
 
-header, footer {
-    background: #333;
-    color: #fff;
-    padding: 10px 0;
+header {
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
 }
 
-header h1, footer p {
+.header-top {
+    display: flex;
+    align-items: center; /* Align items to the center */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.site-title {
+    text-align: left;
+    margin-right: 20px; /* Adjust spacing between title and navbar */
+    position: relative; /* For positioning the pseudo-element */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+}
+
+header h1 {
     margin: 0;
+    font-size: 2em;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
+header h1 a {
+    color: inherit; /* Keep the link color same as the text color */
+    text-decoration: none; /* Remove underline */
 }
 
-nav ul li {
-    display: inline;
-    margin-right: 10px;
+header h1 a:hover {
+    text-decoration: none; /* Ensure no underline on hover */
+}
+
+.site-title::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -10px; /* Adjust as needed */
+    bottom: 0; /* Extend to the bottom */
+    width: 1px;
+    background-color: #ddd; /* Light gray color for the separator */
+}
+
+.site-description {
+    margin: 5px 0 0;
+    font-size: 1em; /* Smaller font size */
+    font-style: italic; /* Cursive font style */
+    color: #666; /* Light gray color */
 }
 
 a {
@@ -75,4 +107,296 @@ a:hover {
 .kg-width-full {
     width: 100%;
     margin: 0 auto;
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    align-items: center;
+    margin-left: 20px; /* Add margin to align it properly */
+}
+
+.navbar-menu {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.navbar-menu li {
+    margin-right: 15px;
+}
+
+.navbar-menu a {
+    padding: 10px 15px;
+    display: inline-block;
+    color: #333;
+    text-decoration: none;
+}
+
+.navbar-menu a:hover {
+    color: #000;
+}
+
+/* Navbar Toggle Button (Mobile Only) */
+.navbar-toggle {
+    display: none;
+    background: transparent;
+    color: inherit;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    margin-left: auto; /* Align to the right on mobile */
+}
+
+.navbar-toggle .icon-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    margin: 4px auto;
+    background-color: currentColor;
+    transition: background-color 0.2s ease;
+}
+
+/* Flyout Menu Styles */
+.navbar-menu.flyout {
+    position: fixed;
+    top: 0;
+    right: -250px; /* Hidden offscreen initially */
+    width: 250px;
+    height: 100%;
+    background: #333;
+    color: #fff;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+    padding-top: 50px;
+}
+
+.navbar-menu.flyout.expanded {
+    right: 0; /* Slide in on expand */
+}
+
+.navbar-menu.flyout li {
+    width: 100%;
+    margin: 0;
+}
+
+.navbar-menu.flyout a {
+    color: #fff;
+    padding: 15px 20px;
+    width: 100%;
+    text-align: left;
+}
+
+.navbar-menu.flyout a:hover {
+    background: #555;
+}
+
+/* Post Grid Styles */
+.post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.post-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.post-card:hover {
+    transform: translateY(-10px);
+}
+
+.post-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
+.post-card-image-wrapper {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.post-card-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(10px);
+    transform: scale(1.1);
+    z-index: 1;
+}
+
+.post-card-image-foreground {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 2;
+    border-radius: 15px;
+    /* Gradient Overlay for Smoother Blending */
+    background: 
+        linear-gradient(transparent, rgba(255,255,255,0.5)), 
+        linear-gradient(to top, transparent, rgba(255,255,255,0.5)), 
+        linear-gradient(to right, transparent, rgba(255,255,255,0.5)), 
+        linear-gradient(to left, transparent, rgba(255,255,255,0.5)), 
+        url('path-to-your-image.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.post-card-content {
+    padding: 20px;
+}
+
+.post-card-title {
+    font-size: 1.5em;
+    margin: 0 0 10px;
+}
+
+.post-card-excerpt {
+    font-size: 1em;
+    color: #666;
+    margin: 0 0 20px;
+}
+
+.post-card-date {
+    font-size: 0.9em;
+    color: #999;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .header-top {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .site-title {
+        margin-right: 10px;
+    }
+
+    .navbar {
+        margin-left: 0;
+    }
+
+    .navbar-menu {
+        display: none; /* Hide the menu initially */
+    }
+
+    .navbar-menu.flyout {
+        display: flex; /* Show the menu */
+    }
+
+    .navbar-toggle {
+        display: block; /* Show the toggle button */
+    }
+
+    .navbar-menu li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .navbar-menu a {
+        padding: 10px;
+        width: 100%;
+    }
+
+    header, footer {
+        text-align: center;
+    }
+
+    .post {
+        margin-bottom: 30px;
+    }
+
+    .post-header h1 {
+        font-size: 1.5em;
+    }
+
+    .post-meta {
+        font-size: 0.8em;
+    }
+
+    .post-footer {
+        font-size: 0.8em;
+    }
+}
+
+@media (min-width: 769px) {
+    .navbar-menu {
+        flex-direction: row;
+        width: auto;
+    }
+
+    .navbar-menu li {
+        margin-right: 15px;
+    }
+
+    .navbar-menu a {
+        padding: 10px;
+        width: auto;
+    }
+
+    header, footer {
+        text-align: left;
+    }
+
+    .post {
+        margin-bottom: 30px;
+    }
+
+    .post-header h1 {
+        font-size: 1.5em;
+    }
+
+    .post-meta {
+        font-size: 0.8em;
+    }
+
+    .post-footer {
+        font-size: 0.8em;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        width: 90%;
+    }
+
+    .post-header h1 {
+        font-size: 2em;
+    }
+
+    .post-meta {
+        font-size: 0.9em;
+    }
+
+    .post-footer {
+        font-size: 0.9em;
+    }
 }

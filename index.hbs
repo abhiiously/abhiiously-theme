@@ -1,11 +1,22 @@
 {{!< default}}
 <main class="content">
-    {{#foreach posts}}
-        <article class="post">
-            <h2><a href="{{url}}">{{title}}</a></h2>
-            <p>{{excerpt words="30"}} <a href="{{url}}">Read more</a></p>
-        </article>
-    {{else}}
-        <p>No posts found.</p>
-    {{/foreach}}
+    <div class="post-grid">
+        {{#foreach posts}}
+            <article class="post-card">
+                <a href="{{url}}" class="post-card-link">
+                    <div class="post-card-image-wrapper">
+                        <div class="post-card-image" style="background-image: url({{feature_image}});"></div>
+                        <div class="post-card-image-foreground" style="background-image: url({{feature_image}});"></div>
+                    </div>
+                    <div class="post-card-content">
+                        <h2 class="post-card-title">{{title}}</h2>
+                        <p class="post-card-excerpt">{{excerpt words="20"}}</p>
+                        <span class="post-card-date">{{date published_at format="MMMM DD, YYYY"}}</span>
+                    </div>
+                </a>
+            </article>
+        {{else}}
+            <p>No posts found.</p>
+        {{/foreach}}
+    </div>
 </main>
