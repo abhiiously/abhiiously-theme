@@ -1,0 +1,9 @@
+{
+  "name": "abhiiously-blog",
+  "version": "1.0.0",
+  "description": "Abhiiously a blog",
+  "author": "Abhi",
+  "config": {
+    "posts_per_page": 5
+  }
+}

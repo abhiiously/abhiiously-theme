@@ -1,0 +1,15 @@
+{{!< default}}
+<main class="content">
+    <header class="author-header">
+        <h1>About {{author.name}}</h1>
+        <p>{{author.bio}}</p>
+    </header>
+    {{#foreach posts}}
+        <article class="post">
+            <h2><a href="{{url}}">{{title}}</a></h2>
+            <p>{{excerpt words="30"}} <a href="{{url}}">Read more</a></p>
+        </article>
+    {{else}}
+        <p>No posts found.</p>
+    {{/foreach}}
+</main>
