@@ -66,3 +66,13 @@ a:hover {
     font-size: 0.9em;
     color: #666;
 }
+
+.kg-width-wide {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.kg-width-full {
+    width: 100%;
+    margin: 0 auto;
+}

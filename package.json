@@ -1,8 +1,11 @@
 {
-  "name": "abhiiously-blog",
+  "name": "my-personal-blog",
   "version": "1.0.0",
-  "description": "Abhiiously a blog",
-  "author": "Abhi",
+  "description": "A personal blog theme for Ghost",
+  "author": {
+    "name": "Abhi",
+    "email": "your-email@example.com"
+  },
   "config": {
     "posts_per_page": 5
   }
